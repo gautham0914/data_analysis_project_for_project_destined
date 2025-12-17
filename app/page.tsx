@@ -61,7 +61,7 @@ const overviewItems = [
   "Data gathered and cleaned with Python",
   "Organized so state trends are easy to compare",
   "Key trends calculated with SQL (growth, risk, momentum)",
-  "Results auto-refresh on each update"
+  "Automation: GitHub Actions refresh outputs on every push"
 ];
 
 const insights = [
@@ -92,13 +92,15 @@ function DataTable({
   caption,
   rows,
   formatter,
-  columnLabel
+  columnLabel,
+  insight
 }: {
   title: string;
   caption: string;
   rows: TableRow[];
   formatter: (value: number) => string;
   columnLabel: string;
+  insight?: string;
 }) {
   const hasData = rows.length > 0;
   return (
@@ -128,6 +130,9 @@ function DataTable({
       ) : (
         <p className="text-slate-400">Data not available.</p>
       )}
+      {insight ? (
+        <p className="text-xs text-slate-400 mt-1">{insight}</p>
+      ) : null}
     </div>
   );
 }
@@ -228,6 +233,7 @@ export default function Page() {
             rows={data.topValues}
             formatter={formatCurrency}
             columnLabel="$ Avg Home Value"
+            insight="Use to benchmark affordability and maturity; high price ≠ fastest growth."
           />
           <DataTable
             title="Top Growth (first to latest quarter)"
@@ -235,6 +241,7 @@ export default function Page() {
             rows={data.topGrowth}
             formatter={formatPercent}
             columnLabel="Total Growth %"
+            insight="Shows where values expanded fastest; growth rate is different from price level."
           />
           <DataTable
             title="Most Volatile (quarter-to-quarter swings)"
@@ -242,6 +249,7 @@ export default function Page() {
             rows={data.volatility}
             formatter={formatCurrency}
             columnLabel="Volatility ($ Std Dev)"
+            insight="Large swings imply higher risk and timing sensitivity for buyers and investors."
           />
           <DataTable
             title="Recent Momentum (last 2 quarters)"
@@ -249,6 +257,7 @@ export default function Page() {
             rows={data.momentum}
             formatter={formatPercent}
             columnLabel="Momentum % (2Q)"
+            insight="Signals near-term direction; can disagree with the full-period trend."
           />
         </div>
       </section>
