@@ -64,22 +64,41 @@ const overviewItems = [
   "Automation: GitHub Actions refresh outputs on every push"
 ];
 
-const insightCards = [
-  "High prices are structural, not always fastest growth",
-  "Fast growth often appears in mid-priced markets",
-  "Averages hide risk (volatility matters)",
-  "Recent momentum can diverge from long-term trends",
-  "QoQ vs YoY serve different purposes"
+const insights = [
+  {
+    title: "Highest-priced states are not always the fastest-growing.",
+    subtitle: "Growth = % change from first available quarter to the latest quarter."
+  },
+  {
+    title: "Fast growth often comes from mid-priced states, not the top 3.",
+    subtitle: "Compare baseline price rank vs total growth rank."
+  },
+  {
+    title: "Averages hide risk — volatility changes which markets look “safe.”",
+    subtitle: "Volatility = standard deviation of quarterly price changes ($)."
+  },
+  {
+    title: "Recent momentum can contradict the long-term trend.",
+    subtitle: "Momentum = last 2 quarters’ % change; trend = full-period % change."
+  },
+  {
+    title: "QoQ and YoY answer different questions — don’t mix them.",
+    subtitle: "QoQ = short-term movement; YoY = seasonality-aware direction."
+  }
 ];
 
 function DataTable({
   title,
+  caption,
   rows,
-  formatter
+  formatter,
+  columnLabel
 }: {
   title: string;
+  caption: string;
   rows: TableRow[];
   formatter: (value: number) => string;
+  columnLabel: string;
 }) {
   const hasData = rows.length > 0;
   return (
@@ -88,12 +107,13 @@ function DataTable({
         <h3 className="text-lg font-semibold text-slate-50">{title}</h3>
         <span className="text-xs uppercase tracking-wide text-slate-400">Top 10</span>
       </div>
+      <p className="text-sm text-slate-400">{caption}</p>
       {hasData ? (
         <table className="w-full text-sm">
           <thead>
             <tr className="text-slate-400">
               <th className="text-left pb-2">State</th>
-              <th className="text-right pb-2">Value</th>
+              <th className="text-right pb-2">{columnLabel}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-800">
@@ -142,6 +162,9 @@ export default function Page() {
             <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/Data_analysis_project_for_project_destined/blob/main/results/report.md" target="_blank" rel="noreferrer">
               Stakeholder Report
             </a>
+            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/Data_analysis_project_for_project_destined/blob/main/insights/insights.md" target="_blank" rel="noreferrer">
+              Insights File
+            </a>
             <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/Data_analysis_project_for_project_destined/blob/main/sql/analysis.sql" target="_blank" rel="noreferrer">
               SQL Analysis
             </a>
@@ -175,9 +198,10 @@ export default function Page() {
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Key Insights</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {insightCards.map((text) => (
-            <div key={text} className="rounded-2xl bg-card/80 border border-slate-800 p-5 shadow-glow">
-              <p className="text-slate-200 font-medium">{text}</p>
+          {insights.map((item) => (
+            <div key={item.title} className="rounded-2xl bg-card/80 border border-slate-800 p-5 shadow-glow">
+              <p className="text-slate-200 font-semibold">{item.title}</p>
+              <p className="text-xs text-slate-400 mt-1">{item.subtitle}</p>
             </div>
           ))}
         </div>
@@ -189,10 +213,34 @@ export default function Page() {
           <p className="text-slate-400">Top 10 rows from each analysis output, loaded at build time.</p>
         </div>
         <div className="grid lg:grid-cols-2 gap-6">
-          <DataTable title="Top Avg Home Value" rows={data.topValues} formatter={formatCurrency} />
-          <DataTable title="Top Growth (first to last)" rows={data.topGrowth} formatter={formatPercent} />
-          <DataTable title="Most Volatile" rows={data.volatility} formatter={formatCurrency} />
-          <DataTable title="Recent Momentum (last 2 quarters)" rows={data.momentum} formatter={formatPercent} />
+          <DataTable
+            title="Top Avg Home Value"
+            caption="States with the highest average typical home value across the full time range."
+            rows={data.topValues}
+            formatter={formatCurrency}
+            columnLabel="$ Avg Home Value"
+          />
+          <DataTable
+            title="Top Growth (first → latest quarter)"
+            caption="States with the largest total % increase from the first quarter to the most recent quarter."
+            rows={data.topGrowth}
+            formatter={formatPercent}
+            columnLabel="Total Growth %"
+          />
+          <DataTable
+            title="Most Volatile (quarter-to-quarter swings)"
+            caption="States with the biggest typical $ swings per quarter (higher = riskier variability)."
+            rows={data.volatility}
+            formatter={formatCurrency}
+            columnLabel="Volatility ($ Std Dev)"
+          />
+          <DataTable
+            title="Recent Momentum (last 2 quarters)"
+            caption="States with the strongest short-term acceleration in the last two quarters of data."
+            rows={data.momentum}
+            formatter={formatPercent}
+            columnLabel="Momentum % (2Q)"
+          />
         </div>
       </section>
     </main>
