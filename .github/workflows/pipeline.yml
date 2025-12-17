@@ -34,7 +34,7 @@ jobs:
         run: |
           python - <<EOF
           import duckdb
-          con = duckdb.connect("data/zillow.duckdb")
+          con = duckdb.connect("realestate.duckdb")
           with open("sql/analysis.sql", "r") as f:
               con.execute(f.read())
           con.close()
