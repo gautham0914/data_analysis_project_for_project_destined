@@ -156,22 +156,22 @@ export default function Page() {
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-3">
-            <a className="rounded-xl bg-sky-500 text-slate-950 font-semibold px-4 py-3 text-center hover:bg-sky-400 transition" href="https://github.com/gautham0914/Data_analysis_project_for_project_destined" target="_blank" rel="noreferrer">
+            <a className="rounded-xl bg-sky-500 text-slate-950 font-semibold px-4 py-3 text-center hover:bg-sky-400 transition" href="https://github.com/gautham0914/data_analysis_project_for_project_destined" target="_blank" rel="noreferrer">
               GitHub Repo
             </a>
-            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/Data_analysis_project_for_project_destined/blob/main/results/report.md" target="_blank" rel="noreferrer">
+            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/data_analysis_project_for_project_destined/blob/main/results/report.md" target="_blank" rel="noreferrer">
               Stakeholder Report
             </a>
-            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/Data_analysis_project_for_project_destined/blob/main/insights/insights.md" target="_blank" rel="noreferrer">
+            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/data_analysis_project_for_project_destined/blob/main/insights/insights.md" target="_blank" rel="noreferrer">
               Insights File
             </a>
-            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/Data_analysis_project_for_project_destined/blob/main/sql/analysis.sql" target="_blank" rel="noreferrer">
+            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/data_analysis_project_for_project_destined/blob/main/sql/analysis.sql" target="_blank" rel="noreferrer">
               SQL Analysis
             </a>
-            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/Data_analysis_project_for_project_destined/blob/main/etl/load_duckdb.py" target="_blank" rel="noreferrer">
+            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/data_analysis_project_for_project_destined/blob/main/etl/load_duckdb.py" target="_blank" rel="noreferrer">
               ETL Pipeline
             </a>
-            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/Data_analysis_project_for_project_destined/blob/main/.github/workflows/pipeline.yml" target="_blank" rel="noreferrer">
+            <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://github.com/gautham0914/data_analysis_project_for_project_destined/blob/main/.github/workflows/pipeline.yml" target="_blank" rel="noreferrer">
               Automation Workflow
             </a>
             <a className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center hover:border-sky-500 transition" href="https://www.linkedin.com/in/gauthamgongada" target="_blank" rel="noreferrer">
