@@ -1,5 +1,5 @@
 # Data_analysis_project_for_project_destined
-# Real Estate Home Value Trends (SQL + Data Architecture Case Study)
+# Real Estate Data Analytics & Workflow Automation Case Study
 
 ## Overview
 This project analyzes **state-level U.S. home value trends** using a public Zillow quarterly time-series dataset.
