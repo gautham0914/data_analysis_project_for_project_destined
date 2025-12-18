@@ -190,10 +190,16 @@ export default function Page() {
           <div className="rounded-2xl border border-slate-800 bg-card/80 shadow-glow p-5 mt-3">
             <h3 className="text-base font-semibold text-slate-50 mb-2">About the dataset</h3>
             <p className="text-sm text-slate-300">
-              State-level U.S. home values from Zillow Home Value Index (ZHVI). Quarterly time series of
-              typical home value ($) across many years. I cleaned it with Python, reshaped it to make
-              state trends easy to compare, and used SQL to compute growth, volatility, and momentum.
+              Source: Zillow Home Value Index (ZHVI). It tracks what a “typical” home is worth (in $) for every U.S. state, quarter by quarter.
             </p>
+            <div className="mt-3 text-sm text-slate-300">
+              <p className="mb-2 font-medium text-slate-200">What’s in the CSV (simple terms):</p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li><span className="font-medium">state_name</span>: the U.S. state.</li>
+                <li><span className="font-medium">one column per quarter</span> (e.g., <code className="px-1 rounded bg-slate-900/60 border border-slate-800">2015_Q1</code>, <code className="px-1 rounded bg-slate-900/60 border border-slate-800">2015_Q2</code>): the typical home value in dollars for that quarter.</li>
+              </ul>
+              <p className="mt-3">I use Python to reshape this “many-quarter-columns” format into simple rows of <em>state + quarter + value</em>, then SQL to calculate growth, volatility (risk), and recent momentum.</p>
+            </div>
             <div className="mt-3 flex flex-wrap gap-2 text-xs">
               <a
                 className="rounded-lg border border-slate-800 bg-slate-900/60 px-3 py-2 hover:border-sky-500 transition"
