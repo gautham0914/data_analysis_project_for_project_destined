@@ -186,6 +186,41 @@ export default function Page() {
               Portfolio
             </a>
           </div>
+          {/* About the Dataset card */}
+          <div className="rounded-2xl border border-slate-800 bg-card/80 shadow-glow p-5 mt-3">
+            <h3 className="text-base font-semibold text-slate-50 mb-2">About the dataset</h3>
+            <p className="text-sm text-slate-300">
+              State-level U.S. home values from Zillow Home Value Index (ZHVI). Quarterly time series of
+              typical home value ($) across many years. I cleaned it with Python, reshaped it to make
+              state trends easy to compare, and used SQL to compute growth, volatility, and momentum.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2 text-xs">
+              <a
+                className="rounded-lg border border-slate-800 bg-slate-900/60 px-3 py-2 hover:border-sky-500 transition"
+                href="https://github.com/gautham0914/data_analysis_project_for_project_destined/blob/main/data/home_v_state.csv"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View CSV
+              </a>
+              <a
+                className="rounded-lg border border-slate-800 bg-slate-900/60 px-3 py-2 hover:border-sky-500 transition"
+                href="https://github.com/gautham0914/data_analysis_project_for_project_destined/blob/main/etl/load_duckdb.py"
+                target="_blank"
+                rel="noreferrer"
+              >
+                How it's cleaned (Python)
+              </a>
+              <a
+                className="rounded-lg border border-slate-800 bg-slate-900/60 px-3 py-2 hover:border-sky-500 transition"
+                href="https://github.com/gautham0914/data_analysis_project_for_project_destined/blob/main/sql/analysis.sql"
+                target="_blank"
+                rel="noreferrer"
+              >
+                How insights are calculated (SQL)
+              </a>
+            </div>
+          </div>
         </div>
         <div className="space-y-6">
           <div className="rounded-2xl border border-slate-800 bg-slate-900/60 overflow-hidden shadow-glow">
